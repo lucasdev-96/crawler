@@ -4,7 +4,8 @@ import {
   emptyFields,
   verifyDateOfCheckIn,
   verifyDateOfCheckInIsLessThenCheckOut,
-} from 'App/Enum/Errors'
+} from 'App/Enum/Mensagens'
+import { DateTime } from 'luxon'
 
 test.group('Accommodations api', () => {
   test('should fail empty fields with status 422', async ({ client }) => {
@@ -37,5 +38,14 @@ test.group('Accommodations api', () => {
     })
     response.assertBodyContains(checkoutMustBeThreeDaysMoreThenCheckin)
     response.assertStatus(422)
+  })
+  test('must return available hotel rooms with specifications', async ({ client }) => {
+    const date = DateTime.now().toFormat('yyyy-MM-dd')
+    const response = await client.post('/search').form({
+      checkin: date,
+      checkout: DateTime.fromISO(date).plus({ days: 3 }).toFormat('yyyy-MM-dd'),
+    })
+    response.assertBodyContains(response.body())
+    response.assertStatus(200)
   })
 })
