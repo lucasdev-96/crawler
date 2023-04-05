@@ -14,6 +14,6 @@ export default class AccommodationsController {
       AccommodationValidator
     )
     const res = this.crawler.start(checkout, checkin)
-    // response.json({"s"})
+    response.json(res)
   }
 }
