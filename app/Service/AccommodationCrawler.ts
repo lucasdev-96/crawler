@@ -41,7 +41,7 @@ export default class AccommodationCrawler {
     return hotelAvaible
   }
   private async verifyAvaibleHotel(page: Page): Promise<string | boolean> {
-    await page.waitForSelector('#descHotel')
+    await page.waitForSelector('#hotelSelecionadoContent')
     const fatherNoHotel = await page.$('#hotel-selecionado-indisponivel')
     if (fatherNoHotel) {
       return page.$eval('#hotel-selecionado-indisponivel > div:nth-child(2)', (e) => e.textContent)
