@@ -137,3 +137,6 @@ A data de check-in deve ser menor que a data de check-out:
 	"response": "Desculpe, mas não temos quartos disponíveis para esta data. Que tal tentar uma nova busca para um período diferente?"
 }
 ```
+```
+OBS: se quiser abrir o browser, é so ir no arquivo Crawler.ts e trocar await puppeteer.launch({ headless: true }) de true para false
+```
