@@ -14,6 +14,6 @@ export default class AccommodationsController {
     )
     const res = await this.crawler.start(checkout, checkin)
 
-    response.json(typeof res === 'string' ? { response: res } : res)
+    response.json({ response: res })
   }
 }

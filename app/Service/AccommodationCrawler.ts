@@ -10,8 +10,8 @@ export default class AccommodationCrawler {
   public async start(checkout: DateTime, checkin: DateTime): Promise<string | any> {
     const page = await this.crawler.start(this.getUrl(checkout, checkin))
     const result = await this.getRooms(page)
-    await page.close()
-    return await result
+    page.close()
+    return result
   }
 
   private getUrl(checkout: DateTime, checkin: DateTime) {
@@ -44,10 +44,7 @@ export default class AccommodationCrawler {
     await page.waitForSelector('#descHotel')
     const fatherNoHotel = await page.$('#hotel-selecionado-indisponivel')
     if (fatherNoHotel) {
-      return await page.$eval(
-        '#hotel-selecionado-indisponivel > div:nth-child(2)',
-        (e) => e.textContent
-      )
+      return page.$eval('#hotel-selecionado-indisponivel > div:nth-child(2)', (e) => e.textContent)
     }
     return false
   }
