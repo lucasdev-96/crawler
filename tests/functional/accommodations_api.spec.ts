@@ -30,7 +30,7 @@ test.group('Accommodations api', () => {
     response.assertBodyContains(verifyDateOfCheckInIsLessThenCheckOut)
     response.assertStatus(422)
   })
-  test('must fail as check-out must be done three days after check-in', async ({ client }) => {
+  test('must fail as the stay must be a minimum of three nights', async ({ client }) => {
     const response = await client.post('/search').form({
       checkin: '2023-04-11',
       checkout: '2023-04-13',
