@@ -4,7 +4,6 @@ import { HttpContext, inject } from '@adonisjs/core/build/standalone'
 import AccommodationCrawler from 'App/Service/AccommodationCrawler'
 import AccommodationValidator from 'App/Validators/AccommodationValidator'
 import IAccommodationInterface from 'App/interfaces/AccommodationInterface'
-import { DateTime } from 'luxon'
 
 @inject()
 export default class AccommodationsController {
@@ -13,7 +12,8 @@ export default class AccommodationsController {
     const { checkin, checkout }: IAccommodationInterface = await request.validate(
       AccommodationValidator
     )
-    const res = this.crawler.start(checkout, checkin)
-    response.json(res)
+    const res = await this.crawler.start(checkout, checkin)
+
+    response.json(typeof res === 'string' ? { response: res } : res)
   }
 }
