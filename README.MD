@@ -1,5 +1,5 @@
 # Objetivo do Projeto:
-<h2>Este endpoint é utilizado para buscar quartos disponíveis com base nas datas de check-in e check-out.</h2>
+<h2>Este endpoint é utilizado para buscar quartos disponíveis com base nas datas de check-in e check-out e retornar o preço da estadia e o nome, a descrição e a imagem do quarto .</h2>
 
 <h3>Tecnologias Utilizadas:</h3>
 
@@ -111,7 +111,7 @@ A data de check-in deve ser menor que a data de check-out:
 <li>A resposta da API é um array de JSON ou um JSON, contendo as seguintes informações para cada quarto encontrado:
 <li>name: nome do quarto.
 <li>description: descrição do quarto.
-<li>price: preço do quarto.
+<li>price: preço da estadia.
 <li>image: URL da imagem do quarto.
 
 <li> E quando o quarto não é encontrado na data passada é retornado uma mensagem
@@ -137,6 +137,6 @@ A data de check-in deve ser menor que a data de check-out:
 	"response": "Desculpe, mas não temos quartos disponíveis para esta data. Que tal tentar uma nova busca para um período diferente?"
 }
 ```
-```
+
 OBS: se quiser abrir o browser, é so ir no arquivo Crawler.ts e trocar await puppeteer.launch({ headless: true }) de true para false
-```
+
