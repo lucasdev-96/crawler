@@ -1,5 +1,5 @@
 # Objetivo do Projeto:
-<h2>Este endpoint é utilizado para buscar quartos disponíveis com base nas datas de check-in e check-out e retornar o preço da estadia e o nome, a descrição e a imagem do quarto .</h2>
+<h2>Este endpoint é utilizado para buscar quartos disponíveis com base nas datas de check-in e check-out e retornar ao cliente: o nome, a descrição e a imagem do quarto e o preço da estadia.</h2>
 
 <h3>Tecnologias Utilizadas:</h3>
 
@@ -78,7 +78,7 @@ A data de check-in deve ser menor que a data de check-out:
 
 ```
 
-<li> O cliente tem que ficar pelo menos três noites de hospedagem, então o check-out tem que ser 3 dias depois do check-in
+<li> O cliente tem que ficar pelo menos três noites hospedado no hotel, então o check-out tem que ser 3 dias depois do check-in
 
 ```
 {
